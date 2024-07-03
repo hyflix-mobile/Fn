@@ -1,39 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-  }
-  video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  .back-link {
-    position: absolute;
-    top: 10px; /* Adjust as needed */
-    left: 10px; /* Adjust as needed */
-    z-index: 10; /* Ensure it's above the video */
-    color: white;
-    text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Player</title>
+    <!-- Подключаем Video.js для воспроизведения медиа -->
+    <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
 </head>
 <body>
-<a href="https://www.socialcreator.com/freetvinarmenia" class="back-link">&lt; Վերադառնալ հետ</a>
-<video controls="" name="media">
-  <source src="https://amtvusdvr.tulix.tv/am2abr/index.m3u8" type="application/vnd.apple.mpegurl">
-</video>
+    <div>
+        <!-- Видеоплеер -->
+        <video id="my-video" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" data-setup='{}'>
+            <!-- Источники видео из JSON-плейлиста -->
+            <source src="https://content.jwplatform.com/manifests/yp34SRmf.m3u8" type="application/x-mpegURL">
+            <!-- Поддержка текста, если нужно -->
+            <p class="vjs-no-js">
+                Чтобы просмотреть это видео, включите JavaScript и рассмотрите возможность обновления на браузер, который поддерживает HTML5 видео.
+                <a href="https://videojs.com/html5-video-support/" target="_blank" rel="noopener noreferrer">Поддержка HTML5 видео</a>
+            </p>
+        </video>
+    </div>
+
+    <script>
+        // Инициализация видеоплеера с помощью Video.js
+        var player = videojs('my-video');
+    </script>
 </body>
 </html>
